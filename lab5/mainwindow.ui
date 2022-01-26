@@ -39,7 +39,16 @@
     <addaction name="actionzapisz"/>
     <addaction name="actionwyjdz"/>
    </widget>
+   <widget class="QMenu" name="menuEdytuj">
+    <property name="title">
+     <string>Edytuj</string>
+    </property>
+    <addaction name="actionPodzia_RGB_2"/>
+    <addaction name="actionPodzia_yCrCb"/>
+    <addaction name="actionPodzia_HSV"/>
+   </widget>
    <addaction name="menuMenu"/>
+   <addaction name="menuEdytuj"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -97,6 +106,21 @@
    </property>
    <property name="text">
     <string>pokaz</string>
+   </property>
+  </action>
+  <action name="actionPodzia_yCrCb">
+   <property name="text">
+    <string>Podział yCrCb</string>
+   </property>
+  </action>
+  <action name="actionPodzia_HSV">
+   <property name="text">
+    <string>Podział HSV</string>
+   </property>
+  </action>
+  <action name="actionPodzia_RGB_2">
+   <property name="text">
+    <string>Podział RGB</string>
    </property>
   </action>
  </widget>

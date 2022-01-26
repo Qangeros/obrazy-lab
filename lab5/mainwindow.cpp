@@ -81,3 +81,80 @@ void MainWindow::on_actionpokaz_triggered()
 
 }
 
+
+void MainWindow::on_actionPodzia_RGB_2_triggered()
+{
+    if(!wybrany_plik.isEmpty())
+    {
+        cv::Mat obrazek_bazowy = cv::imread(wybrany_plik.toStdString().c_str());
+        cv::Mat pokaz_red = cv::imread(wybrany_plik.toStdString().c_str());
+        cv::Mat pokaz_green = cv::imread(wybrany_plik.toStdString().c_str());
+        cv::Mat pokaz_blue = cv::imread(wybrany_plik.toStdString().c_str());
+
+        cv::Mat skladowa_red[3];
+        cv::Mat skladowa_green[3];
+        cv::Mat skladowa_blue[3];
+
+        cv::split(obrazek_bazowy, skladowa_red);
+        cv::split(obrazek_bazowy, skladowa_green);
+        cv::split(obrazek_bazowy, skladowa_blue);
+
+        skladowa_red[0] = cv::Mat::zeros(skladowa_red[1].size(), CV_8UC1);
+        skladowa_red[1] = cv::Mat::zeros(skladowa_red[3].size(), CV_8UC1);
+        skladowa_green[0] = cv::Mat::zeros(skladowa_green[2].size(), CV_8UC1);
+        skladowa_green[2] = cv::Mat::zeros(skladowa_green[3].size(), CV_8UC1);
+        skladowa_blue[1] = cv::Mat::zeros(skladowa_blue[1].size(), CV_8UC1);
+        skladowa_blue[2] = cv::Mat::zeros(skladowa_blue[2].size(), CV_8UC1);
+
+        cv::merge(skladowa_red, 3, pokaz_red);
+        cv::merge(skladowa_green, 3, pokaz_green);
+        cv::merge(skladowa_blue, 3, pokaz_blue);
+
+        cv::imshow("Skladowa R", pokaz_red);
+        cv::imshow("Skladowa G", pokaz_green);
+        cv::imshow("Skladowa B", pokaz_blue);
+
+    }
+}
+
+
+
+void MainWindow::on_actionPodzia_yCrCb_triggered()
+{
+    if(!wybrany_plik.isEmpty())
+    {
+        cv::Mat obrazek_bazowy = cv::imread(wybrany_plik.toStdString().c_str());
+        cv::Mat konwersja_YCrCb;
+        cv::Mat skladowe_YCrCb[3];
+
+        cv::cvtColor(obrazek_bazowy, konwersja_YCrCb, cv::COLOR_BGR2YCrCb);
+        cv::split(konwersja_YCrCb, skladowe_YCrCb);
+
+        cv::imshow("Składowa Y", skladowe_YCrCb[0]);
+        cv::imshow("Składowa Cr", skladowe_YCrCb[1]);
+        cv::imshow("Składowa Cb", skladowe_YCrCb[2]);
+
+    }
+
+}
+
+
+void MainWindow::on_actionPodzia_HSV_triggered()
+{
+    if(!wybrany_plik.isEmpty())
+    {
+        cv::Mat obrazek_bazowy = cv::imread(wybrany_plik.toStdString().c_str());
+        cv::Mat konwersja_HSV;
+        cv::Mat skladowe_HSV[3];
+
+        cv::cvtColor(obrazek_bazowy, konwersja_HSV, cv::COLOR_BGR2HSV);
+        cv::split(konwersja_HSV, skladowe_HSV);
+
+        cv::imshow("Składowa H", skladowe_HSV[0]);
+        cv::imshow("Składowa S", skladowe_HSV[1]);
+        cv::imshow("Składowa V", skladowe_HSV[2]);
+
+    }
+}
+
+

@@ -38,6 +38,13 @@ private slots:
 
     void on_actionpokaz_triggered();
 
+
+    void on_actionPodzia_RGB_2_triggered();
+
+    void on_actionPodzia_HSV_triggered();
+
+    void on_actionPodzia_yCrCb_triggered();
+
 private:
     Ui::MainWindow *ui;
     QImage *image;
