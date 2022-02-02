@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/Ikony">
+        <file>quit.png</file>
+        <file>save.png</file>
+        <file>open2.png</file>
+        <file>pokaz.png</file>
+    </qresource>
+</RCC>
