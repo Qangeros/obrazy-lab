@@ -14,9 +14,76 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout">
+   <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
-     <widget class="QGraphicsView" name="graphicsView"/>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string> Jasność </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSlider" name="brightnessSlider">
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string extracomment="Jasnosc"/>
+          </property>
+          <property name="minimum">
+           <number>-100</number>
+          </property>
+          <property name="maximum">
+           <number>100</number>
+          </property>
+          <property name="sliderPosition">
+           <number>0</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Kontrast</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSlider" name="contrastSlider">
+          <property name="cursor">
+           <cursorShape>OpenHandCursor</cursorShape>
+          </property>
+          <property name="toolTip">
+           <string extracomment="Kontrast"/>
+          </property>
+          <property name="minimum">
+           <number>50</number>
+          </property>
+          <property name="maximum">
+           <number>299</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="2" column="0">
+       <widget class="QGraphicsView" name="graphicsView"/>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
@@ -39,7 +106,20 @@
     <addaction name="actionzapisz"/>
     <addaction name="actionwyjdz"/>
    </widget>
+   <widget class="QMenu" name="menuEdytuj">
+    <property name="title">
+     <string>Edytuj</string>
+    </property>
+    <addaction name="actionPodzia_RGB_2"/>
+    <addaction name="actionPodzia_yCrCb"/>
+    <addaction name="actionPodzia_HSV"/>
+    <addaction name="actionJasno_Kontrast"/>
+    <addaction name="actionProgowanie"/>
+    <addaction name="actionRotacja"/>
+    <addaction name="actionSkalowanie"/>
+   </widget>
    <addaction name="menuMenu"/>
+   <addaction name="menuEdytuj"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -97,6 +177,41 @@
    </property>
    <property name="text">
     <string>pokaz</string>
+   </property>
+  </action>
+  <action name="actionPodzia_yCrCb">
+   <property name="text">
+    <string>Podział yCrCb</string>
+   </property>
+  </action>
+  <action name="actionPodzia_HSV">
+   <property name="text">
+    <string>Podział HSV</string>
+   </property>
+  </action>
+  <action name="actionPodzia_RGB_2">
+   <property name="text">
+    <string>Podział RGB</string>
+   </property>
+  </action>
+  <action name="actionJasno_Kontrast">
+   <property name="text">
+    <string>Jasność/Kontrast</string>
+   </property>
+  </action>
+  <action name="actionProgowanie">
+   <property name="text">
+    <string>Progowanie</string>
+   </property>
+  </action>
+  <action name="actionRotacja">
+   <property name="text">
+    <string>Rotacja</string>
+   </property>
+  </action>
+  <action name="actionSkalowanie">
+   <property name="text">
+    <string>Skalowanie</string>
    </property>
   </action>
  </widget>
