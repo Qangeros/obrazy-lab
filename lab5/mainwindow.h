@@ -59,7 +59,7 @@ public:
     void Canny();
     int T_min;
     int T_max = T_min * 2;
-
+    int kernel = 1;
 
 
 private slots:

@@ -429,15 +429,22 @@ void MainWindow::Prewitt()
 {
     cv::Mat grad_x, grad_y;
     cv::Mat abs_grad_x, abs_grad_y;
+    cv::Mat_<int>kernelpion(3,3);
+    cv::Mat_<int>kernelpoziom(3,3);
+
+    kernelpoziom<<-1,-1,-1,0,0,0,1,1,1;
+    kernelpion<<1,0,-1,1,0,-1,1,0,-1;
+
     obrazek_bazowy = cv::imread(wybrany_plik.toStdString().c_str(),cv::IMREAD_COLOR);
     wynik = cv::Mat::zeros(obrazek_bazowy.size(), obrazek_bazowy.type());
-    cv::filter2D(obrazek_bazowy, grad_y, CV_16S, 0, cv::Point(-1, -1), 0, CV_HAL_BORDER_REFLECT_101);
-    cv::filter2D(obrazek_bazowy, grad_x, CV_16S, 1, cv::Point(-1, -1), 0, CV_HAL_BORDER_REFLECT_101);
+
+    cv::filter2D(obrazek_bazowy, grad_y, CV_16S, kernelpion, cv::Point(-1, -1), 0, CV_HAL_BORDER_REFLECT_101);
+    cv::filter2D(obrazek_bazowy, grad_x, CV_16S, kernelpoziom, cv::Point(-1, -1), 0, CV_HAL_BORDER_REFLECT_101);
 
     cv::convertScaleAbs(grad_y, abs_grad_y);
     cv::convertScaleAbs(grad_x, abs_grad_x);
     cv::addWeighted(abs_grad_x, 0.5, abs_grad_y, 0.5, 0, wynik);
-    cv::imshow("Prewitta", wynik);
+    cv::imshow("Filtr Prewitta", wynik);
 
 }
 
