@@ -28,6 +28,32 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    double alfa, beta;
+    double a_Red, a_Green, a_Blue;
+    double b_Red, b_Green, b_Blue;
+
+    void Progowanie();
+    int typ = 3;
+    int prog = 0;
+    int const max_typ = 4;
+    int const max_value = 255;
+    int const max_binary_value = 255;
+    cv::Mat obrazek_bazowy, src_gray, wynik;
+
+    void Skaluj();
+    void Rotacja();
+    double kat, Skala_x, Skala_y;
+    int wsp_skali = 100;
+    int kat_obrotu = 0;
+    cv::Point punkt;
+    cv::Size rozmiar;
+
+    void Usrednianie();
+    void Gauss();
+    void Mediana();
+    int wielkosc_okna = 1;
+    int wartosc;
+
 
 private slots:
     void on_actionwyjdz_triggered();
@@ -37,6 +63,30 @@ private slots:
     void on_actionotworz_triggered();
 
     void on_actionpokaz_triggered();
+
+    void on_actionPodzia_RGB_2_triggered();
+
+    void on_actionPodzia_HSV_triggered();
+
+    void on_actionPodzia_yCrCb_triggered();
+
+    void on_brightnessSlider_valueChanged(int value);
+
+    void on_contrastSlider_valueChanged(int value);
+
+    void on_actionJasno_Kontrast_triggered();
+
+    void on_actionProgowanie_triggered();
+
+    void on_actionRotacja_triggered();
+
+    void on_actionSkalowanie_triggered();
+
+    void on_actionFiltr_u_redniaj_cy_triggered();
+
+    void on_actionFiltr_Gaussa_triggered();
+
+    void on_actionFiltr_Medianowy_triggered();
 
 private:
     Ui::MainWindow *ui;
