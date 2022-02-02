@@ -28,6 +28,18 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    double alfa, beta;
+    double a_Red, a_Green, a_Blue;
+    double b_Red, b_Green, b_Blue;
+
+    void Progowanie();
+    int typ = 3;
+    int prog = 0;
+    int const max_typ = 4;
+    int const max_value = 255;
+    int const max_binary_value = 255;
+    cv::Mat obrazek_bazowy, src_gray, wynik;
+
 
 private slots:
     void on_actionwyjdz_triggered();
@@ -37,6 +49,20 @@ private slots:
     void on_actionotworz_triggered();
 
     void on_actionpokaz_triggered();
+
+    void on_actionPodzia_RGB_2_triggered();
+
+    void on_actionPodzia_HSV_triggered();
+
+    void on_actionPodzia_yCrCb_triggered();
+
+    void on_brightnessSlider_valueChanged(int value);
+
+    void on_contrastSlider_valueChanged(int value);
+
+    void on_actionJasno_Kontrast_triggered();
+
+    void on_actionProgowanie_triggered();
 
 private:
     Ui::MainWindow *ui;
